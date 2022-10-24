@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+
+
+.info_box .info-title {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.info_box .info-list {
+    padding: 15px 30px;
+}
+
+.info_box .info-list .info {
+    margin: 5px 0;
+    font-size: 17px;
+}
+
+.info_box .info-list .info span {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: rgb(193, 185, 185);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+
+}
+
+.btn {
+    --hue: var(--hue-neutral);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color: rgb(94, 8, 56);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+
+}
+
+.timer {
+    height: 10px;
+    padding: 10px;
+    color: black;
+    text-align: right;
+  }
+  
+  .timer div {
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .timer div p {
+    padding: 8px;
+  }
+
+
+.btn:hover {
+    border-color: white;
+
+}
+
+.btn.correct {
+    background-color: green ;
+    
+}
+
+/*  turns wrong buttons red */
+/* .btn.wrong {
+    background-color: red ;
+} */
+
+.correct-answer, 
+.wrong-answer {
+    color: rgb(60, 58, 58);
+}
+
+.start-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}

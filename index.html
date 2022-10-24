@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Code Quiz</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- timer -->
+        <div id="timer" class="timer hide">
+            <div>
+                <div class="timer-count">75 </div>
+                <p> seconds remaining</p>
+            </div>
+        </div>
+        <!-- Starting Info -->
+        <div>
+            <div id="info-box" class="info_box">
+                <div class="info-title"><span>Code Quiz</span></div>
+                <div class="info-list">
+                    <div class="info">You will have only <span>75 seconds</span> to answer all 5 questions.</div>
+                    <div class="info">Once you select your answer, it can't be undone and will automatically move on to the next question</div>
+                    <div class="info">For every incorrect answer <strong>8 seconds</strong> will be subtractecd from the total remaining time</div>
+                </div>
+            </div>    
+                   <!-- Question Format  -->
+            <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-btns" class="btn-grid">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+                <div class="correct-answer hide">Correct!</div>
+                <!-- <div class="wrong-answer hide">Wrong!</div> -->
+            </div>
+            <div class="controls">
+                <div><button id="start-btn" class="start-btn btn">Start Quiz</button></div>
+                <button id="back-btn" class="back-btn btn hide">Go back</button>
+                <button id="clear-btn" class="clear-btn btn hide">Clear Highscores</button>
+                <button id="submit-btn" class="submit-btn btn hide">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
