@@ -1,16 +1,16 @@
 const startButton = document.getElementById("start-btn");
+const submitButton = document.getElementById('submit-btn');
 const questionContainerEl = document.getElementById("question-container");
 const infoEl = document.getElementById('info-box');
 let shuffledQuestions, currentQuestionIndex;
 const questionEl = document.getElementById('question');
 const answerButtonsEl = document.getElementById('answer-btns');
 const correctText = document.querySelector(".correct-answer");
-// const wrongText =  document.querySelector(".wrong-answer");
-const timerEl = document.querySelector(".timer");
-
-var timerCount;
-var timer;
-
+const wrongText = document.querySelector(".wrong-answer");
+var timerEl = document.querySelector(".timer");
+var timerCountEl = document.querySelector('#timer-count')
+var timeLeft = 75;
+const nameInput = document.querySelector('#nameForm');
 startButton.addEventListener('click', startGame);
 
 
@@ -26,12 +26,17 @@ function startGame() {
     setNextQuestion();
 }
 
-function startTimer(time) {
+function startTimer() {
     // Sets timer
-   timer = setInterval(function () {
-        timerCount--;
-        timerCount.textContent = time;
-       
+    timerEl = setInterval(function () {
+        timerCountEl.textContent = "Time Left: " + timeLeft + " seconds";
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timerEl);
+            timerCountEl.textContent = "TIMES UP!"
+        }
+
     }, 1000);
 }
 
@@ -62,6 +67,7 @@ function resetState() {
     }
 }
 
+// all answer buttons are to take user to next question
 function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
@@ -71,9 +77,23 @@ function selectAnswer(e) {
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         return;
+    } else {
+        questionEl.textContent = 'Quiz Complete!';
+        submitButton.classList.remove('hide');
+        correctText.classList.add('hide');
+        nameInput.classList.remove('hide')
+
     }
     answerButtonsEl.addEventListener('click', setNextQuestion);
+
 }
+
+const answerButtons = document.getElementById('answer-btns');
+answerButtons.addEventListener('click', () => {
+    currentQuestionIndex++
+    resetState();
+    setNextQuestion();
+});
 
 function setStatusClass(element, correct) {
     clearStatusClass(element);
@@ -81,8 +101,10 @@ function setStatusClass(element, correct) {
         element.classList.add('correct');
         correctText.classList.remove('hide');
     } else {
-        // correctText.textContent = "Wrong"
         element.classList.add('wrong');
+        // correctText.textContent = "Wrong"
+        // timeLeft -= 1 ; 
+
     }
 }
 
@@ -124,10 +146,10 @@ const questionList = [
     {
         question: "What is 10 + 2",
         answers: [
-            { text: '12', correct: true },
+            { text: '30', correct: false },
             { text: '22', correct: false },
             { text: '8', correct: false },
-            { text: '12', correct: false },
+            { text: '12', correct: true },
         ]
     },
     {

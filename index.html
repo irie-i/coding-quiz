@@ -13,10 +13,9 @@
     <div class="container">
         <!-- timer -->
         <div id="timer" class="timer hide">
-            <div>
-                <div class="timer-count">75 </div>
-                <p> seconds remaining</p>
-            </div>
+
+            <div id="timer-count"></div>
+
         </div>
         <!-- Starting Info -->
         <div>
@@ -24,11 +23,13 @@
                 <div class="info-title"><span>Code Quiz</span></div>
                 <div class="info-list">
                     <div class="info">You will have only <span>75 seconds</span> to answer all 5 questions.</div>
-                    <div class="info">Once you select your answer, it can't be undone and will automatically move on to the next question</div>
-                    <div class="info">For every incorrect answer <strong>8 seconds</strong> will be subtractecd from the total remaining time</div>
+                    <div class="info">Once you select your answer, it can't be undone and will automatically move on to
+                        the next question</div>
+                    <div class="info">For every incorrect answer <strong>8 seconds</strong> will be subtractecd from the
+                        total remaining time</div>
                 </div>
-            </div>    
-                   <!-- Question Format  -->
+            </div>
+            <!-- Question Format  -->
             <div id="question-container" class="hide">
                 <div id="question">Question</div>
                 <div id="answer-btns" class="btn-grid">
@@ -38,17 +39,31 @@
                     <button class="btn">Answer 4</button>
                 </div>
                 <div class="correct-answer hide">Correct!</div>
-                <!-- <div class="wrong-answer hide">Wrong!</div> -->
+                <div class="wrong-answer hide">Wrong!</div>
+                <div>
+                    <div id="score" class="score hide"> </div>
+                    <form id="nameForm" class="nameForm hide">
+                        <label for="fname">Name:</label>
+                        <input type="text" id="fname" name="name">
+                    </form>
+                </div>
             </div>
+
             <div class="controls">
                 <div><button id="start-btn" class="start-btn btn">Start Quiz</button></div>
                 <button id="back-btn" class="back-btn btn hide">Go back</button>
                 <button id="clear-btn" class="clear-btn btn hide">Clear Highscores</button>
                 <button id="submit-btn" class="submit-btn btn hide">Submit</button>
             </div>
-        </div>
-    </div>
-    <script src="./assets/js/script.js"></script>
+            <!-- <div class="card results hide">
+                <div class="win-loss-container">
+                    <div>
+                        <h2>Wins: <span class="win">0 </span> </h2>
+                        <h2>Losses: <span class="lose">0</span></h2>
+                    </div>
+                </div>
+            </div> -->
+            <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
