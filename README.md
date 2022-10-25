@@ -16,7 +16,7 @@ Project is designed to create a timed quiz by utilizing JavaScript functions. Th
 
 ## Screen Shot
 
-
+![Screenshot of application](./assets/images/screenshot1.png)
 
 ## Link
 
