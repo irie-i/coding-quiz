@@ -12,7 +12,9 @@ var timerCountEl = document.querySelector('#timer-count')
 var timeLeft = 75;
 const nameInput = document.querySelector('#nameForm');
 startButton.addEventListener('click', startGame);
-
+var scoreEl = document.querySelector('#score');
+var count = localStorage.getItem("count")
+var points = 25;
 
 function startGame() {
     console.log('Started');
@@ -76,12 +78,15 @@ function selectAnswer(e) {
         setStatusClass(button, button.dataset.correct);
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
+
         return;
     } else {
         questionEl.textContent = 'Quiz Complete!';
         submitButton.classList.remove('hide');
         correctText.classList.add('hide');
-        nameInput.classList.remove('hide')
+        nameInput.classList.remove('hide');
+        scoreEl.classList.remove('hide');
+
 
     }
     answerButtonsEl.addEventListener('click', setNextQuestion);
@@ -91,15 +96,33 @@ function selectAnswer(e) {
 const answerButtons = document.getElementById('answer-btns');
 answerButtons.addEventListener('click', () => {
     currentQuestionIndex++
+    if (currentQuestionIndex >= questionList.length) {
+        clearInterval(timerEl);
+        // timerCountEl.textContent = "Game Over!"
+    }
     resetState();
     setNextQuestion();
 });
+
+function addPoints() {
+    scoreEl.textContent = "Score: " + points;
+    points++;
+
+}
+// selectAnswer.addEventListener("click", function() {
+//     if (count <= 0) {
+//       count++;
+//       counter.textContent = count;
+//       localStorage.setItem("count", count);
+//     }
+//   });
 
 function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
         element.classList.add('correct');
         correctText.classList.remove('hide');
+        scoreEl++;
     } else {
         element.classList.add('wrong');
         // correctText.textContent = "Wrong"

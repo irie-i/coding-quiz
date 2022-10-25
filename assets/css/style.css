@@ -9,12 +9,12 @@
 
 body {
     padding: 0;
-    margin: 0;
+    margin-top: 30em;
     display: flex;
     width: 100vw;
     height: 100vw;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background-color: white;
 }
 
@@ -76,14 +76,16 @@ body {
 
 }
 
-.timer {
+.timer,
+.score {
     height: 10px;
     padding: 10px;
     color: black;
     text-align: right;
   }
   
-  .timer div {
+  .timer div, 
+  .score {
     padding: 0px;
     display: flex;
     justify-content: flex-end;
